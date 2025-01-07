@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class OrderItem extends StatelessWidget {
   const OrderItem({super.key});
@@ -21,7 +22,7 @@ class OrderItem extends StatelessWidget {
           Row(
             children: [
               // shipping icon
-              const Icon(Icons.local_shipping_outlined),
+              const Icon(Iconsax.truck),
               const SizedBox(
                 width: 12,
               ),
@@ -45,8 +46,8 @@ class OrderItem extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  Icons.arrow_right,
-                  size: 36,
+                  Iconsax.arrow_right,
+                  size: 26,
                 ),
               )
             ],
@@ -63,7 +64,7 @@ class OrderItem extends StatelessWidget {
                 child: Row(
                   children: [
                     // shipping icon
-                    const Icon(Icons.label_outline),
+                    const Icon(Iconsax.tag),
                     const SizedBox(
                       width: 12,
                     ),
@@ -89,7 +90,7 @@ class OrderItem extends StatelessWidget {
                 child: Row(
                   children: [
                     // shipping icon
-                    const Icon(Icons.calendar_today),
+                    const Icon(Iconsax.calendar),
                     const SizedBox(
                       width: 12,
                     ),

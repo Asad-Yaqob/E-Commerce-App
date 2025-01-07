@@ -1,6 +1,7 @@
-import 'package:capjewel/ui/screens/cart/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
+import 'package:capjewel/ui/screens/cart/cart.dart';
 import 'package:capjewel/ui/comman/widgets/appbar/appbar.dart';
 import 'package:capjewel/utils/constants/color.dart';
 
@@ -14,7 +15,7 @@ class HomeAppBar extends StatelessWidget {
     return AppAppBar(
       title: Text(
         'capjewel',
-        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+        style: Theme.of(context).textTheme.headlineLarge!.copyWith(
               color: AppColors.black,
             ),
       ),
@@ -37,7 +38,7 @@ class HomeAppBar extends StatelessWidget {
               backgroundColor: Colors.transparent,
               offset: const Offset(10, -5),
               child: Icon(
-                Icons.shopping_basket,
+                Iconsax.shopping_bag,
                 color: AppColors.black,
               ),
             ),

@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+
 import 'package:capjewel/ui/widgets/home/category_tab.dart';
 import 'package:capjewel/ui/widgets/home/custom_header.dart';
 import 'package:capjewel/ui/widgets/home/home_appbar.dart';
 import 'package:capjewel/ui/widgets/home/home_search.dart';
 import 'package:capjewel/utils/constants/sizes.dart';
-import 'package:flutter/material.dart';
+import 'package:capjewel/utils/constants/color.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -12,8 +14,9 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomHeader(
-      child: Column(
+    return CustomHeader(
+      color: AppColors.background,
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // appbar here

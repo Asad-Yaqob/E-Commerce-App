@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:capjewel/ui/comman/widgets/curvededges/curved_widget.dart';
 
+
 class CustomHeader extends StatelessWidget {
   const CustomHeader({
     super.key,
     required this.child,
-    this.color = const Color(0xFFF8F0E5),
+    required this.color ,
   });
 
   final Widget child;

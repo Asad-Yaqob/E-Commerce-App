@@ -1,7 +1,8 @@
-import 'package:capjewel/ui/comman/widgets/rounded_container.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
+import 'package:iconsax/iconsax.dart';
 
+import 'package:capjewel/ui/comman/widgets/rounded_container.dart';
 import 'package:capjewel/ui/widgets/product/rating/rating_bar_indicator.dart';
 
 import 'package:capjewel/utils/constants/sizes.dart';
@@ -31,7 +32,7 @@ class UserReviewCard extends StatelessWidget {
               ],
             ),
             const Icon(
-              Icons.menu,
+              Iconsax.menu_15,
               size: 32,
             )
           ],

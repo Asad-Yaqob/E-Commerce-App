@@ -9,5 +9,5 @@ class AppColors {
   static Color lighTextColor = Colors.grey;
 
   static Color black = Colors.black;
-  static Color background = const Color(0xFFF8F0E5);
+  static Color background = const Color(0xFFF5E4D3);
 }

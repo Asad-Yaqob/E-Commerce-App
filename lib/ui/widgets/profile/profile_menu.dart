@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
@@ -6,7 +7,7 @@ class ProfileMenu extends StatelessWidget {
     required this.title,
     required this.value,
     required this.onProfilePress,
-    this.icon = Icons.arrow_right,
+    this.icon = Iconsax.arrow_right,
   });
 
   final String title, value;

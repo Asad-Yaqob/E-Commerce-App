@@ -1,9 +1,11 @@
+import 'package:capjewel/utils/constants/color.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capjewel/models/category.dart';
 import 'package:capjewel/models/product.dart';
 import 'package:capjewel/ui/screens/cart/cart.dart';
 import 'package:capjewel/ui/screens/order/order.dart';
+import 'package:iconsax/iconsax.dart';
 
 List<Category> sampleCategories = [
   Category(categoryName: 'Necklace'),
@@ -93,13 +95,13 @@ const List<String> sampleBanners = [
 
 final accountSettings = <Map<String, Object>>[
   {
-    'icon': Icons.home,
+    'icon': Iconsax.home,
     'title': 'My Addresses',
     'subTitle': 'Set shopping delivery addresses',
     'onPressedTile': (BuildContext context) {},
   },
   {
-    'icon': Icons.shopping_cart,
+    'icon': Iconsax.shopping_cart,
     'title': 'My Cart',
     'subTitle': 'View and manage your shopping cart',
     'onPressedTile': (BuildContext context) {
@@ -112,7 +114,7 @@ final accountSettings = <Map<String, Object>>[
     },
   },
   {
-    'icon': Icons.library_books,
+    'icon': Iconsax.activity,
     'title': 'My Orders',
     'subTitle': 'View your order history and status',
     'onPressedTile': (BuildContext context) {
@@ -125,25 +127,25 @@ final accountSettings = <Map<String, Object>>[
     },
   },
   {
-    'icon': Icons.account_balance,
+    'icon': Iconsax.bank,
     'title': 'Bank Account',
     'subTitle': 'Withdraw balance from registered bank account',
     'onPressedTile': (BuildContext context) {},
   },
   {
-    'icon': Icons.library_books,
+    'icon': Iconsax.ticket_discount,
     'title': 'My Coupons',
     'subTitle': 'List of the discounted coupons',
     'onPressedTile': (BuildContext context) {},
   },
   {
-    'icon': Icons.notifications_active,
+    'icon': Iconsax.notification,
     'title': 'Notifications',
     'subTitle': 'View your order history and status',
     'onPressedTile': (BuildContext context) {},
   },
   {
-    'icon': Icons.person,
+    'icon': Iconsax.personalcard,
     'title': 'Account Privacy',
     'subTitle': 'Manage your account privacy settings',
     'onPressedTile': (BuildContext context) {},
@@ -152,24 +154,25 @@ final accountSettings = <Map<String, Object>>[
 
 final appSettings = <Map<String, Object>>[
   {
-    'icon': Icons.cloud_upload,
+    'icon': Iconsax.data,
     'title': 'Load Data',
     'subTitle': 'Load data from the cloud',
   },
   {
-    'icon': Icons.location_history,
+    'icon': Iconsax.location,
     'title': 'Geolocation',
     'subTitle': 'Enable location services',
     'trailing': Switch(value: false, onChanged: (value) {})
   },
   {
-    'icon': Icons.security,
+    'icon': Iconsax.security,
     'title': 'Safe Mode',
     'subTitle': 'Enable safe mode',
-    'trailing': Switch(value: true, onChanged: (value) {})
+    'trailing': Switch(
+        value: true, activeColor: AppColors.primaryColor, onChanged: (value) {})
   },
   {
-    'icon': Icons.image,
+    'icon': Iconsax.image,
     'title': 'Hd Image Quantity',
     'subTitle': 'Enable high-quality images',
     'trailing': Switch(value: false, onChanged: (value) {})

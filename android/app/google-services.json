@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "39709180221",
+    "project_id": "omgisfirebasepaid",
+    "storage_bucket": "omgisfirebasepaid.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39709180221:android:83f8594336e492a8dc4554",
+        "android_client_info": {
+          "package_name": "com.example.capjewel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39709180221-f8ov1n38ifi2u24aee49ckv4n8pk44of.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.capjewel",
+            "certificate_hash": "142b55b227905acc154ce49106c2f05b5544ec6a"
+          }
+        },
+        {
+          "client_id": "39709180221-dtac6hho857si12itt180obt613e63kg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF453r4Ax-jZMju5f76CsD53OIimJZQ_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39709180221-dtac6hho857si12itt180obt613e63kg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "39709180221-kuvtt2j1ffgcenojp3c01a64a1d569qi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.capjewel"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

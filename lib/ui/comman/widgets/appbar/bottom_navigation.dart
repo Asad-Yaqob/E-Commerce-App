@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:iconsax/iconsax.dart';
 import 'package:capjewel/providers/landingpage/landing.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
@@ -20,24 +20,24 @@ class AppBottomNavigationBar extends StatelessWidget {
           selectedIndexNotifier.updateIndex(value),
       destinations: const [
         NavigationDestination(
-          icon: Icon(Icons.home_outlined, size: 32),
+          icon: Icon(Iconsax.home, size: 32),
           label: 'Home',
         ),
         NavigationDestination(
             icon: Icon(
-              Icons.storefront_outlined,
+              Iconsax.shop,
               size: 32,
             ),
             label: 'Shop'),
         NavigationDestination(
             icon: Icon(
-              Icons.shopping_bag_outlined,
+              Iconsax.shopping_bag,
               size: 32,
             ),
             label: 'Cart'),
         NavigationDestination(
             icon: Icon(
-              Icons.person_outlined,
+              Iconsax.personalcard,
               size: 32,
             ),
             label: 'Account'),

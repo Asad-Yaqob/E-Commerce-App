@@ -5,6 +5,7 @@ import 'package:capjewel/models/product.dart';
 
 import 'package:capjewel/utils/constants/color.dart';
 import 'package:capjewel/utils/constants/sizes.dart';
+import 'package:readmore/readmore.dart';
 
 class ProductInformation extends StatelessWidget {
   const ProductInformation({
@@ -62,6 +63,7 @@ class ProductInformation extends StatelessWidget {
 
         // Category
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Category',
@@ -93,10 +95,22 @@ class ProductInformation extends StatelessWidget {
             const SizedBox(
               height: AppSizes.spaceBetweenFields,
             ),
-            Text(
+            ReadMoreText(
               data.subDetail,
-              textAlign: TextAlign.left,
-              style: Theme.of(context).textTheme.bodyLarge,
+              trimLines: 3,
+              trimMode: TrimMode.Line,
+              trimCollapsedText: 'show more',
+              trimExpandedText: 'show less',
+              moreStyle: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primaryColor,
+              ),
+              lessStyle: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primaryColor,
+              ),
             ),
           ],
         ),

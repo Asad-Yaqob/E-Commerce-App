@@ -1,3 +1,4 @@
+import 'package:capjewel/utils/constants/color.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capjewel/ui/comman/widgets/appbar/appbar.dart';
@@ -19,6 +20,7 @@ class SettingsScreen extends StatelessWidget {
           children: [
             // header
             CustomHeader(
+              color: AppColors.background,
               child: Column(
                 children: [
                   // appbar

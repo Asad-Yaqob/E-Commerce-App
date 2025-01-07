@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import 'package:capjewel/ui/comman/widgets/appbar/appbar.dart';
 import 'package:capjewel/utils/constants/color.dart';
@@ -29,7 +30,7 @@ class ShopHeader extends StatelessWidget {
             backgroundColor: Colors.transparent,
             offset: const Offset(10, -5),
             child: const Icon(
-              Icons.shopping_basket,
+              Iconsax.shopping_bag,
             ),
           ),
         ),

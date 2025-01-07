@@ -1,5 +1,7 @@
-import 'package:capjewel/ui/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
+
+import 'package:iconsax/iconsax.dart';
+import 'package:capjewel/ui/screens/profile/profile.dart';
 
 class UserProfileCard extends StatelessWidget {
   const UserProfileCard({super.key});
@@ -28,7 +30,7 @@ class UserProfileCard extends StatelessWidget {
               ),
             );
           },
-          icon: const Icon(Icons.edit_note_outlined)),
+          icon: const Icon(Iconsax.edit)),
     );
   }
 }

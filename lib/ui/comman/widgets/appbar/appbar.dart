@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:iconsax/iconsax.dart';
+
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   const AppAppBar({
     super.key,
@@ -27,7 +29,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
                   resetIndex!();
                 }
               },
-              child: const Icon(Icons.arrow_back))
+              child: const Icon(Iconsax.arrow_left))
           : null,
       title: title,
       backgroundColor: color,
