@@ -1,3 +1,4 @@
+import 'package:capjewel/providers/auth/auth_state.dart';
 import 'package:capjewel/ui/screens/auth/reset_password.dart';
 import 'package:capjewel/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
