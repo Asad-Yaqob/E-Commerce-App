@@ -1,3 +1,4 @@
+import 'package:capjewel/providers/auth/auth_provider.dart';
 import 'package:capjewel/utils/constants/color.dart';
 import 'package:flutter/material.dart';
 
@@ -8,12 +9,14 @@ import 'package:capjewel/ui/widgets/profile/settings/setting_menu_tile.dart';
 import 'package:capjewel/ui/widgets/profile/settings/user_profile_card.dart';
 
 import 'package:capjewel/data/sample_data.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authController = ref.read(authProvider.notifier);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -84,9 +87,12 @@ class SettingsScreen extends StatelessWidget {
 
                   const SizedBox(height: 20),
                   SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                          onPressed: () {}, child: const Text('Logout')))
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: authController.signOut,
+                      child: const Text('Logout'),
+                    ),
+                  )
                 ],
               ),
             )

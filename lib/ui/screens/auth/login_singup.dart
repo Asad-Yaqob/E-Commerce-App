@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:capjewel/landing.dart';
+// import 'package:capjewel/landing.dart';
 import 'package:capjewel/utils/constants/sizes.dart';
 
 import 'package:capjewel/ui/widgets/auth/login_signup_form.dart';
@@ -22,12 +22,12 @@ class _LoginSingupScreenState extends State<LoginSingupScreen> {
     setState(() {
       _isLogin = !_isLogin;
     });
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const LandingScreen(),
-      ),
-    );
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => const LandingScreen(),
+    //   ),
+    // );
   }
 
   @override

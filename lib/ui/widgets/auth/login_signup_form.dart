@@ -1,9 +1,13 @@
-import 'package:capjewel/providers/auth/auth_state.dart';
-import 'package:capjewel/ui/screens/auth/reset_password.dart';
-import 'package:capjewel/utils/constants/sizes.dart';
+import 'package:capjewel/providers/auth/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginForm extends StatefulWidget {
+import 'package:capjewel/ui/screens/auth/reset_password.dart';
+
+import 'package:capjewel/utils/constants/sizes.dart';
+import 'package:capjewel/utils/validations/login_signup_validation.dart';
+
+class LoginForm extends ConsumerWidget {
   const LoginForm({
     super.key,
     required this.isLogin,
@@ -12,21 +16,21 @@ class LoginForm extends StatefulWidget {
   final bool isLogin;
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
 
-class _LoginFormState extends State<LoginForm> {
-  bool _isHide = true;
-  bool _isChecked = false;
+    final authState = ref.watch(authProvider);
+    final authController = ref.read(authProvider.notifier);
 
-  @override
-  Widget build(BuildContext context) {
+    final isHide = authState.isHide;
+    final isChecked = authState.isChecked;
+
     return Form(
+      key: authState.formKey,
       child: Column(
         children: [
           // Email Field
           TextFormField(
-            keyboardType: TextInputType.emailAddress,
+            controller: authState.emailController,
             decoration: InputDecoration(
               label: Text(
                 'email address',
@@ -34,6 +38,8 @@ class _LoginFormState extends State<LoginForm> {
               ),
               suffixIcon: const Icon(Icons.mail),
             ),
+            validator: (value) => LoginSignupValidation.validateEmail(value),
+            keyboardType: TextInputType.emailAddress,
           ),
           const SizedBox(
             height: AppSizes.spaceBetweenFields,
@@ -41,6 +47,7 @@ class _LoginFormState extends State<LoginForm> {
 
           // Password Field
           TextFormField(
+            controller: authState.passwordController,
             decoration: InputDecoration(
               label: Text(
                 'pasword',
@@ -48,14 +55,13 @@ class _LoginFormState extends State<LoginForm> {
               ),
               suffixIcon: GestureDetector(
                 onTap: () {
-                  setState(() {
-                    _isHide = !_isHide;
-                  });
+                  authController.togglePasswordVisibility();
                 },
-                child: Icon(_isHide ? Icons.visibility : Icons.visibility_off),
+                child: Icon(isHide ? Icons.visibility : Icons.visibility_off),
               ),
             ),
-            obscureText: _isHide,
+            validator: (value) => LoginSignupValidation.validatePassword(value),
+            obscureText: isHide,
           ),
 
           const SizedBox(
@@ -63,7 +69,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
 
           //Rememer me and Forget Password
-          if (widget.isLogin)
+          if (isLogin)
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -73,11 +79,9 @@ class _LoginFormState extends State<LoginForm> {
                   children: [
                     Checkbox(
                       onChanged: (value) {
-                        setState(() {
-                          _isChecked = !_isChecked;
-                        });
+                        authController.toggleRememberMe();
                       },
-                      value: _isChecked,
+                      value: isChecked,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       visualDensity: VisualDensity.compact,
                     ),
@@ -90,7 +94,12 @@ class _LoginFormState extends State<LoginForm> {
                 // Forget Password
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPassword(),),);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ResetPassword(),
+                      ),
+                    );
                   },
                   child: Text(
                     'forget password',
@@ -108,15 +117,29 @@ class _LoginFormState extends State<LoginForm> {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                widget.isLogin ? 'Login' : 'Sign Up',
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+              onPressed: () => isLogin
+                  ? authController.loginUserWithEmailAndPassword()
+                  : authController.registerUserWithEmailAndPassword(),
+              child: authState.isLoading
+                  ? const Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Text('Loading...')
+                      ],
+                    )
+                  : Text(
+                      isLogin ? 'Login' : 'Sign Up',
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                     ),
-              ),
             ),
           )
         ],
